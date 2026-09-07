@@ -116,6 +116,7 @@ export default function ContactForm() {
       setLoading(true);
 
       const formData = {
+        supplierToken: "6a2faa24c9554d0a6b20f87e",
         platform: "Sangam Garbage Bag popup Form",
         platformEmail: "info@polywell.co.in",
         name,

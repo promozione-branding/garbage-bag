@@ -138,6 +138,7 @@ export default function ContactForm({
       const { data } = await axios.post(
         "https://brandbnalo.com/api/form/add",
         {
+          supplierToken: "6a2faa24c9554d0a6b20f87e",
           platform:
             "Sangam Garbage Bag enquiry Form",
 

@@ -22,6 +22,7 @@ export default function ContactPage() {
 
     try {
       const formData = {
+        supplierToken: "6a2faa24c9554d0a6b20f87e",
         platform: "Sangam Garbage Bag Contact Form",
         platformEmail: "info@sangamgarbagebags.com",
         name,
