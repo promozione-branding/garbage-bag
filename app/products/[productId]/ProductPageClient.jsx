@@ -7,6 +7,7 @@ import Head from "next/head";
 import Enquiry from "@/components/Enquiry";
 import { Shield, Droplet, Dumbbell, Recycle } from "lucide-react";
 import { redirect } from "next/navigation";
+import { handleWhatsappClick } from "@/lib/track";
 
 export default function ProductPage({ params }) {
   const { productId } = React.use(params);
@@ -184,7 +185,7 @@ hover:-translate-y-1 font-semibold"
                 Request Quote
               </button>
 
-              <a
+              <a onClick={() => handleWhatsappClick({ source: "Website product page", obj: "N/A" })}
                 href={`https://wa.me/+918810422935?text=Hello I am interested in ${product.name}`}
                 target="_blank"
                 className="py-3 text-center rounded-xl border 

@@ -10,6 +10,7 @@ import { categories } from "@/Data";
 import Enquiry from "@/components/Enquiry";
 import { motion } from "framer-motion";
 import TranslateButton from "../GoogleTranslate";
+import { handleWhatsappClick } from "@/lib/track";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -31,7 +32,7 @@ export default function Navbar() {
       setScrolled(window.scrollY > 40);
     };
     window.addEventListener("scroll", handleScroll);
-    
+
   }, []);
 
   useEffect(() => {
@@ -41,28 +42,25 @@ export default function Navbar() {
 
   return (<>
     <header
-      className={`fixed top-0 left-0 w-full z-[500] transition-all duration-500 ${
-        scrolled
-          ? "bg-white/70 backdrop-blur-xl shadow-lg border-b border-white/20"
-          : "bg-black/40"
-      }`}
+      className={`fixed top-0 left-0 w-full z-[500] transition-all duration-500 ${scrolled
+        ? "bg-white/70 backdrop-blur-xl shadow-lg border-b border-white/20"
+        : "bg-black/40"
+        }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-2">
         {/* LOGO */}
         <Link
           href="/"
-          className={`transition-all duration-500 ${
-            scrolled ? "bg-[#053619]" : "bg-transparent"
-          }`}
+          className={`transition-all duration-500 ${scrolled ? "bg-[#053619]" : "bg-transparent"
+            }`}
         >
           <Image src="/logo.webp" alt="Logo" width={200} height={60} />
         </Link>
 
         {/* DESKTOP NAV */}
         <nav
-          className={`hidden md:flex items-center gap-10 font-medium text-[22px] ${
-            scrolled ? "text-black" : "text-white"
-          }`}
+          className={`hidden md:flex items-center gap-10 font-medium text-[22px] ${scrolled ? "text-black" : "text-white"
+            }`}
         >
           <Link href="/">Home</Link>
           <Link href="/about">About Us</Link>
@@ -85,11 +83,10 @@ export default function Navbar() {
                     key={cat.id}
                     href={`/categories/${cat.id}`}
                     onMouseEnter={() => setActiveCategory(cat.id)}
-                    className={`block px-5 py-2 rounded-md transition ${
-                      activeCategory === cat.id
-                        ? "bg-emerald-600 text-white"
-                        : "text-gray-700 hover:bg-gray-100"
-                    }`}
+                    className={`block px-5 py-2 rounded-md transition ${activeCategory === cat.id
+                      ? "bg-emerald-600 text-white"
+                      : "text-gray-700 hover:bg-gray-100"
+                      }`}
                   >
                     {cat.name}
                   </Link>
@@ -133,7 +130,7 @@ export default function Navbar() {
 
         {/* RIGHT SIDE DESKTOP */}
         <div className="hidden md:flex items-center gap-3">
-          <a
+          <a onClick={() => handleWhatsappClick({ source: "Website home page", obj: "N/A" })}
             href="https://wa.me/918810422935"
             target="_blank"
             className="w-12 h-12 flex items-center justify-center 
@@ -162,12 +159,12 @@ export default function Navbar() {
           </button>
         </div>
 
-          <button
-        onClick={translateToHindi}
-        className="md:hidden   text-white font-semibold  text-center bg-red-500 hover:bg-red-600 px-3 py-2 rounded-md"
-      >
-        हिंदी में देखें
-      </button>
+        <button
+          onClick={translateToHindi}
+          className="md:hidden   text-white font-semibold  text-center bg-red-500 hover:bg-red-600 px-3 py-2 rounded-md"
+        >
+          हिंदी में देखें
+        </button>
         {/* MOBILE BUTTON */}
         <button
           className="md:hidden"
@@ -198,9 +195,8 @@ export default function Navbar() {
                 <Link href={"/products"} >Our Products</Link>
                 <ChevronDown
                   size={18}
-                  className={`transition-transform ${
-                    mobileCategoryOpen ? "rotate-180" : ""
-                  }`}
+                  className={`transition-transform ${mobileCategoryOpen ? "rotate-180" : ""
+                    }`}
                 />
               </button>
 
@@ -231,7 +227,7 @@ export default function Navbar() {
               Contact
             </Link>
 
-            <a
+            <a onClick={() => handleWhatsappClick({ source: "Website home page", obj: "N/A" })}
               href="https://wa.me/918810422935"
               target="_blank"
               className="flex items-center gap-2 text-green-600 font-medium"
@@ -253,14 +249,14 @@ export default function Navbar() {
         </div>
       )}
 
-      
+
 
       <TranslateButton />
     </header>
     {isFormOpen && (
-        
-        <Enquiry isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
-      )}
-      </>
+
+      <Enquiry isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
+    )}
+  </>
   );
 }

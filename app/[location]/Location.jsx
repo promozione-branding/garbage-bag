@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Factory, Store, Hotel, Home, Leaf, Warehouse, Truck, Tags, Handshake } from "lucide-react";
+import { handleCallClick, handleWhatsappClick } from "@/lib/track";
 
 const Location = () => {
     const params = useParams();
@@ -108,7 +109,7 @@ const Location = () => {
 
 
 
-                {/* Workstation  */}
+            {/* Workstation  */}
             <section className="mx-auto lg:px-15 px-5 py-8 bg-gray-100">
                 <h2 className="text-center text-2xl md:text-[42px] font-bold mb-2">
                     Garbage Bag Types We Offer
@@ -128,15 +129,15 @@ const Location = () => {
                         </div>
                         <h3 className="font-semibold text-lg mb-2">Disposable Garbage Bags</h3>
                         <p className="text-black text-sm leading-relaxed">
-                       Ideal for daily household and office waste disposal needs efficiently and hygienically.
+                            Ideal for daily household and office waste disposal needs efficiently and hygienically.
 
 
                         </p>
 
-                         <a
-              href={`https://wa.me/+918810422935?text=Hi, I'm interested in Disposable Garbage Bags`}
-              target="_blank"
-              onClick={(e) => e.stopPropagation()} className="bg-green-500 px-3 py-2 mt-3 capitalize rounded-sm text-white text-md md:text-lg flex items-center justify-center gap-2"><FaWhatsapp size={25}/> whatsapp now</a>
+                        <a onClick={() => { handleWhatsappClick({ source: "Website city page", obj: "N/A" }); e.stopPropagation() }}
+                            href={`https://wa.me/+918810422935?text=Hi, I'm interested in Disposable Garbage Bags`}
+                            target="_blank"
+                            className="bg-green-500 px-3 py-2 mt-3 capitalize rounded-sm text-white text-md md:text-lg flex items-center justify-center gap-2"><FaWhatsapp size={25} /> whatsapp now</a>
 
 
                     </div>
@@ -155,10 +156,9 @@ const Location = () => {
 
 
 
-      <a
-              href={`https://wa.me/+918810422935?text=Hi, I'm interested in Heavy-Duty Garbage Bags`}
-              target="_blank"
-              onClick={(e) => e.stopPropagation()} className="bg-green-500 px-3 py-2 mt-3 capitalize rounded-sm text-white text-md md:text-lg flex items-center justify-center gap-2"><FaWhatsapp size={25}/> whatsapp now</a>
+                        <a href={`https://wa.me/+918810422935?text=Hi, I'm interested in Heavy-Duty Garbage Bags`}
+                            target="_blank"
+                            onClick={() => { handleWhatsappClick({ source: "Website city page", obj: "N/A" }); e.stopPropagation() }} className="bg-green-500 px-3 py-2 mt-3 capitalize rounded-sm text-white text-md md:text-lg flex items-center justify-center gap-2"><FaWhatsapp size={25} /> whatsapp now</a>
 
                     </div>
                     <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition group">
@@ -175,12 +175,12 @@ const Location = () => {
                         </p>
 
 
-      <a
-              href={`https://wa.me/+918810422935?text=Hi, I'm interested in Color-Coded Garbage Bags`}
-              target="_blank"
-              onClick={(e) => e.stopPropagation()} className="bg-green-500 px-3 py-2 mt-3 capitalize rounded-sm text-white text-md md:text-lg flex items-center justify-center gap-2"><FaWhatsapp size={25}/> whatsapp now</a>
+                        <a
+                            href={`https://wa.me/+918810422935?text=Hi, I'm interested in Color-Coded Garbage Bags`}
+                            target="_blank"
+                            onClick={() => { handleWhatsappClick({ source: "Website city page", obj: "N/A" }); e.stopPropagation() }} className="bg-green-500 px-3 py-2 mt-3 capitalize rounded-sm text-white text-md md:text-lg flex items-center justify-center gap-2"><FaWhatsapp size={25} /> whatsapp now</a>
 
-                        
+
                     </div>
                     <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition group">
                         <div className="w-full h-40 flex items-center justify-center mb-3 overflow-hidden rounded-lg">
@@ -195,11 +195,11 @@ const Location = () => {
                             Specially designed bags used in hospitals and clinics for safe biomedical waste management.
                         </p>
 
-      <a
-              href={`https://wa.me/+918810422935?text=Hi, I'm interested in Biomedical Waste Garbage Bags`}
-              target="_blank"
-              onClick={(e) => e.stopPropagation()} className="bg-green-500 px-3 py-2 mt-3 capitalize rounded-sm text-white text-md md:text-lg flex items-center justify-center gap-2"><FaWhatsapp size={25}/> whatsapp now</a>
-                        
+                        <a
+                            href={`https://wa.me/+918810422935?text=Hi, I'm interested in Biomedical Waste Garbage Bags`}
+                            target="_blank"
+                            onClick={() => { handleWhatsappClick({ source: "Website city page", obj: "N/A" }); e.stopPropagation() }} className="bg-green-500 px-3 py-2 mt-3 capitalize rounded-sm text-white text-md md:text-lg flex items-center justify-center gap-2"><FaWhatsapp size={25} /> whatsapp now</a>
+
                     </div>
                     <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition group">
                         <div className="w-full h-40 flex items-center justify-center mb-3 overflow-hidden rounded-lg">
@@ -211,13 +211,13 @@ const Location = () => {
                         </div>
                         <h3 className="font-semibold text-lg mb-2">Large Capacity Garbage Bags</h3>
                         <p className="text-black text-sm leading-relaxed">
-                          Suitable for hotels, large facilities, and municipal waste collection operations efficiently and reliably.
+                            Suitable for hotels, large facilities, and municipal waste collection operations efficiently and reliably.
                         </p>
 
-      <a
-              href={`https://wa.me/+918810422935?text=Hi, I'm interested in Large Capacity Garbage Bags`}
-              target="_blank"
-              onClick={(e) => e.stopPropagation()} className="bg-green-500 px-3 py-2 mt-3 capitalize rounded-sm text-white text-md md:text-lg flex items-center justify-center gap-2"><FaWhatsapp size={25}/> whatsapp now</a>
+                        <a
+                            href={`https://wa.me/+918810422935?text=Hi, I'm interested in Large Capacity Garbage Bags`}
+                            target="_blank"
+                            onClick={() => { handleWhatsappClick({ source: "Website city page", obj: "N/A" }); e.stopPropagation() }} className="bg-green-500 px-3 py-2 mt-3 capitalize rounded-sm text-white text-md md:text-lg flex items-center justify-center gap-2"><FaWhatsapp size={25} /> whatsapp now</a>
 
 
                     </div>
@@ -356,7 +356,7 @@ const Location = () => {
                 </div>
             </section>
 
-        
+
 
             {/* Key features  */}
             <section className="mx-auto lg:px-15 px-5 py-8">
@@ -541,7 +541,7 @@ const Location = () => {
                             Garbage Bag Manufacturer in {city}
                         </Link>
                         <p className="text-2xl md:text-[42px] font-semibold">
-                            +91 88104 22935 
+                            +91 88104 22935
                         </p>
                         <p className="text-lg text-white">
                             For More Details Contact Us Now!
@@ -549,7 +549,7 @@ const Location = () => {
                     </div>
 
                     <div>
-                        <a href="tel:+918810422935" className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+                        <a onClick={() => { handleCallClick({ source: "Website home page", obj: "N/A" }); }} href="tel:+918810422935" className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
                             Connect Now
                         </a>
                     </div>
